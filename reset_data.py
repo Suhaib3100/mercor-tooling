@@ -109,6 +109,7 @@ def populate_test_data():
             'Title': 'Senior Software Engineer',
             'Start': '2019-03-01',
             'End': '2024-06-01',
+            'Technologies': ['React', 'Node', 'Express'],
             'Application ID': [app_map['APP001']]
         },
         {
@@ -116,6 +117,7 @@ def populate_test_data():
             'Title': 'Software Developer',
             'Start': '2017-01-01',
             'End': '2019-02-28',
+            'Technologies': ['HTML', 'CSS', 'React'],
             'Application ID': [app_map['APP001']]
         },
         # Suhaib - Meta + OpenAI (Tier 1, 6 years)
@@ -124,6 +126,7 @@ def populate_test_data():
             'Title': 'Staff Engineer',
             'Start': '2020-01-01',
             'End': '2023-12-31',
+            'Technologies': ['React', 'Node', 'Nextjs'],
             'Application ID': [app_map['APP002']]
         },
         {
@@ -131,6 +134,7 @@ def populate_test_data():
             'Title': 'Machine Learning Engineer',
             'Start': '2024-01-01',
             'End': '2025-12-31',
+            'Technologies': ['Node', 'Express', 'React'],
             'Application ID': [app_map['APP002']]
         },
         # Alex - Startups (4 years, no Tier-1)
@@ -139,6 +143,7 @@ def populate_test_data():
             'Title': 'Full Stack Developer',
             'Start': '2020-06-01',
             'End': '2022-12-31',
+            'Technologies': ['HTML', 'CSS', 'Node', 'Express'],
             'Application ID': [app_map['APP003']]
         },
         {
@@ -146,6 +151,7 @@ def populate_test_data():
             'Title': 'Backend Engineer',
             'Start': '2023-01-01',
             'End': '2025-01-01',
+            'Technologies': ['Node', 'Express', 'Nextjs'],
             'Application ID': [app_map['APP003']]
         }
     ]
