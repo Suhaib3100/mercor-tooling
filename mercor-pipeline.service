@@ -1,0 +1,15 @@
+[Unit]
+Description=Mercor Pipeline Webhook Server
+After=network.target
+
+[Service]
+User=azureuser
+WorkingDirectory=/home/azureuser/mercor-tooling
+Environment="PATH=/home/azureuser/mercor-tooling/venv/bin"
+EnvironmentFile=/home/azureuser/mercor-tooling/.env
+ExecStart=/home/azureuser/mercor-tooling/venv/bin/gunicorn webhook_server:app --bind 0.0.0.0:8080 --workers 2
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
