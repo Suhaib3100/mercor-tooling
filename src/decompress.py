@@ -40,7 +40,7 @@ def upsert_personal_details(client: AirtableClient, applicant_record_id: str, pe
             "Email": personal_data.get("email", ""),
             "Location": personal_data.get("location", ""),
             "LinkedIn": personal_data.get("linkedin", ""),
-            "Applicant ID": [applicant_record_id]
+            "Application ID": [applicant_record_id]
         }
 
         if existing:
@@ -73,7 +73,7 @@ def upsert_work_experience(client: AirtableClient, applicant_record_id: str, exp
                 "Start": exp.get("start", ""),
                 "End": exp.get("end", ""),
                 "Technologies": exp.get("technologies", []),
-                "Applicant ID": [applicant_record_id]
+                "Application ID": [applicant_record_id]
             }
 
             # Try to match by record_id if available
@@ -124,7 +124,7 @@ def upsert_salary_preferences(client: AirtableClient, applicant_record_id: str, 
             "Minimum Rate": salary_data.get("minimum_rate", 0),
             "Currency": salary_data.get("currency", "USD"),
             "Availability": salary_data.get("availability", 0),
-            "Applicant ID": [applicant_record_id]
+            "Application ID": [applicant_record_id]
         }
 
         if existing:

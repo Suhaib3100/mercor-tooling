@@ -129,7 +129,13 @@ class AirtableClient:
             results.extend(result.get("records", []))
         return results
 
-    def get_linked_records(self, parent_id: str, child_table: str, link_field: str = "Applicant ID") -> list[dict]:
+    def get_linked_records(self, parent_id: str, child_table: str, link_field: str = "Application ID") -> list[dict]:
         """Fetch all child records linked to a parent."""
-        filter_formula = f"FIND('{parent_id}', ARRAYJOIN({{{link_field}}}))"
-        return self.get_records(child_table, filter_formula)
+        # Get all records and filter in Python (Airtable formula doesn't work well with record IDs)
+        all_records = self.get_records(child_table)
+        linked = []
+        for record in all_records:
+            links = record.get("fields", {}).get(link_field, [])
+            if parent_id in links:
+                linked.append(record)
+        return linked

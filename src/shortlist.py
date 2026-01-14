@@ -121,13 +121,13 @@ def create_shortlisted_lead(client: AirtableClient, applicant_record_id: str, js
     """Create Shortlisted Leads record."""
     try:
         # Check if already shortlisted
-        existing = client.get_linked_records(applicant_record_id, TABLE_SHORTLISTED, "Applicant")
+        existing = client.get_linked_records(applicant_record_id, TABLE_SHORTLISTED, "Applicants")
         if existing:
             logger.info(f"Applicant {applicant_record_id} already shortlisted, skipping")
             return True
 
         fields = {
-            "Applicant": [applicant_record_id],
+            "Applicants": [applicant_record_id],
             "Compressed JSON": json.dumps(json_data, indent=2),
             "Score Reason": "\n".join(f"- {r}" for r in reasons)
         }

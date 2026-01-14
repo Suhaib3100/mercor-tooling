@@ -71,10 +71,10 @@ def compress_single_applicant(client: AirtableClient, applicant_record: dict) ->
     """Compress data for a single applicant."""
     record_id = applicant_record.get("id")
     fields = applicant_record.get("fields", {})
-    applicant_id = fields.get("Applicant ID")
+    applicant_id = fields.get("Application ID")
 
     if not applicant_id:
-        logger.warning(f"Record {record_id} has no Applicant ID, skipping")
+        logger.warning(f"Record {record_id} has no Application ID, skipping")
         return False
 
     try:

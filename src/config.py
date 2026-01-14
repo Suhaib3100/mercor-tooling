@@ -8,10 +8,10 @@ AIRTABLE_BASE_ID = os.getenv("AIRTABLE_BASE_ID")
 
 #here table names
 
-TABLE_APPLICANTS =  "Applicants"
+TABLE_APPLICANTS = "Applications"
 TABLE_PERSONAL = "Personal Details"
 TABLE_EXPERIENCE = "Work Experience"
-TABLE_SALARY = "Salary Expectations"
+TABLE_SALARY = "Salary Preferences"
 TABLE_SHORTLISTED = "Shortlisted Leads"
 
 #LLM config heree
