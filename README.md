@@ -2,6 +2,12 @@
 
 An automated system for managing contractor applications with Airtable integration, intelligent shortlisting, and LLM-powered candidate evaluation.
 
+---
+
+> ⚠️ **Note:** Airtable's free plan does not support webhook automations or custom scripts in automations. The automation runs via an **external Python webhook server** that can be triggered manually or via API calls. For full automation, Airtable Team/Business plan is required.
+
+---
+
 ## 🏗️ Architecture
 
 ```
@@ -43,7 +49,7 @@ An automated system for managing contractor applications with Airtable integrati
 
 ## 🚀 Webhook API
 
-**Base URL:** `http://136.111.17.248`
+**Base URL:** `http://YOUR-SERVER-IP`
 
 ### Endpoints
 
@@ -51,7 +57,7 @@ An automated system for managing contractor applications with Airtable integrati
 Full pipeline - compress, shortlist, and LLM evaluate.
 
 ```bash
-curl -X POST http://136.111.17.248/webhook/new-application \
+curl -X POST http://YOUR-SERVER-IP/webhook/new-application \
   -H "Content-Type: application/json" \
   -d '{"record_id": "recXXXXXXXXX"}'
 ```
@@ -71,7 +77,7 @@ curl -X POST http://136.111.17.248/webhook/new-application \
 Compress applicant data only.
 
 ```bash
-curl -X POST http://136.111.17.248/webhook/compress \
+curl -X POST http://YOUR-SERVER-IP/webhook/compress \
   -H "Content-Type: application/json" \
   -d '{"record_id": "recXXXXXXXXX"}'
 ```
@@ -87,7 +93,7 @@ curl -X POST http://136.111.17.248/webhook/compress \
 Run shortlist evaluation only.
 
 ```bash
-curl -X POST http://136.111.17.248/webhook/shortlist \
+curl -X POST http://YOUR-SERVER-IP/webhook/shortlist \
   -H "Content-Type: application/json" \
   -d '{"record_id": "recXXXXXXXXX"}'
 ```
@@ -103,7 +109,7 @@ curl -X POST http://136.111.17.248/webhook/shortlist \
 Run LLM evaluation only.
 
 ```bash
-curl -X POST http://136.111.17.248/webhook/llm-eval \
+curl -X POST http://YOUR-SERVER-IP/webhook/llm-eval \
   -H "Content-Type: application/json" \
   -d '{"record_id": "recXXXXXXXXX"}'
 ```
@@ -119,7 +125,7 @@ curl -X POST http://136.111.17.248/webhook/llm-eval \
 Health check endpoint.
 
 ```bash
-curl http://136.111.17.248/health
+curl http://YOUR-SERVER-IP/health
 ```
 
 **Response:**
@@ -133,7 +139,7 @@ curl http://136.111.17.248/health
 API documentation.
 
 ```bash
-curl http://136.111.17.248/
+curl http://YOUR-SERVER-IP/
 ```
 
 ---
@@ -318,10 +324,10 @@ sudo systemctl restart mercor-pipeline
 
 ```bash
 # Health check
-curl http://136.111.17.248/health
+curl http://YOUR-SERVER-IP/health
 
 # Test with a real record ID from Airtable
-curl -X POST http://136.111.17.248/webhook/new-application \
+curl -X POST http://YOUR-SERVER-IP/webhook/new-application \
   -H "Content-Type: application/json" \
   -d '{"record_id": "recANTrJO2vkL5tol"}'
 ```

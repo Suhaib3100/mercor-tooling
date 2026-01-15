@@ -113,7 +113,7 @@ Fill in these fields:
 
 | Setting | Value |
 |---------|-------|
-| **URL** | `http://136.111.17.248/webhook/new-application` |
+| **URL** | `http://YOUR-SERVER-IP/webhook/new-application` |
 | **Method** | POST |
 | **Content type** | application/json |
 
@@ -374,7 +374,7 @@ After processing, check:
 - Check trigger is set to correct table
 
 ### Webhook failing?
-- Test URL manually: `curl http://136.111.17.248/health`
+- Test URL manually: `curl http://YOUR-SERVER-IP/health`
 - Check server logs: `sudo journalctl -u mercor-pipeline -f`
 
 ### Script errors?
@@ -394,4 +394,4 @@ After processing, check:
 
 ---
 
-Your webhook URL: **`http://136.111.17.248/webhook/new-application`**
+Your webhook URL: **`http://YOUR-SERVER-IP/webhook/new-application`**
